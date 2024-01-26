@@ -13,6 +13,7 @@ namespace MJW.Utils
         #endregion
 
         public Vector3 Position => transform.position;
+        public Quaternion Rotation => transform.rotation;
 
         private void OnDrawGizmos()
         {

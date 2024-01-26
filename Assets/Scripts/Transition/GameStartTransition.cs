@@ -50,8 +50,14 @@ namespace MJW.Transition
         {
             var sequence = DOTween.Sequence();
 
-            sequence.Append(_camera.gameObject.transform.DOMove(_cameraGameplayPosition.Position, _secondsDuration).SetEase(Ease.InOutQuad));
+            sequence.Append(_camera.gameObject.transform.
+                DOMove(_cameraGameplayPosition.Position, _secondsDuration).SetEase(Ease.InOutQuad));
+            
+            sequence.Join(_camera.gameObject.transform.
+                DORotate(_cameraGameplayPosition.Rotation.eulerAngles, _secondsDuration).SetEase(Ease.InOutQuad));
+
             sequence.Join(_mainMenuGroup.DOFade(0, _secondsDuration * .5f));
+            sequence.AppendCallback(() => GameEvents.OnGameReady?.Invoke());
 
             sequence.Play();
         }

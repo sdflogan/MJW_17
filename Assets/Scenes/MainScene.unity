@@ -1166,8 +1166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf293d0751f9f0f4a9128991d81600ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameplayPosition: {fileID: 462419236}
-  _gameplayRotation: {x: 0.18883836, y: 0, z: 0, w: 0.98200816}
 --- !u!1 &876270464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1805,8 +1803,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1418113670}
+  - component: {fileID: 1418113671}
   m_Layer: 0
-  m_Name: StartGameTransition
+  m_Name: GameStartTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1827,6 +1826,23 @@ Transform:
   m_Father: {fileID: 422304801}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1418113671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418113669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f225a2ba7966f904c8de1733ade4d884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _secondsDuration: 2
+  _cameraGameplayPosition: {fileID: 462419236}
+  _mainMenuGroup: {fileID: 1457173108}
+  _mainMenu: {fileID: 1457173104}
+  _camera: {fileID: 732775313}
 --- !u!1 &1457173104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,6 +1855,7 @@ GameObject:
   - component: {fileID: 1457173106}
   - component: {fileID: 1457173107}
   - component: {fileID: 1457173108}
+  - component: {fileID: 1457173109}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -1920,6 +1937,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1457173109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457173104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989dbb94293f66343a31c19183d8a61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playBtn: {fileID: 1160656116}
+  _exitBtn: {fileID: 224642726}
 --- !u!1 &1553897523
 GameObject:
   m_ObjectHideFlags: 0

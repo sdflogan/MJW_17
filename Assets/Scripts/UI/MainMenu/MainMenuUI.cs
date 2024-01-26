@@ -39,7 +39,7 @@ namespace MJW.UI.MainMenu
 
         private void OnExitPressed()
         {
-
+            Application.Quit();
         }
 
         #endregion
