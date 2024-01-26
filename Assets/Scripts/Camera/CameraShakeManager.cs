@@ -2,7 +2,7 @@ using DG.Tweening;
 using MJW.Utils;
 using UnityEngine;
 
-namespace MJW
+namespace MJW.MyCamera
 {
     public class CameraShakeManager : Singleton<CameraShakeManager>
     {
