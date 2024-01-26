@@ -1,5 +1,6 @@
 
 using MJW.Player.Inputs;
+using UnityEngine;
 
 namespace MJW.Player
 {
@@ -7,12 +8,12 @@ namespace MJW.Player
     {
         public float GetAxisHorizontal()
         {
-            throw new System.NotImplementedException();
+            return Input.GetAxis("Horizontal-2");
         }
 
         public float GetAxisVertical()
         {
-            throw new System.NotImplementedException();
+            return Input.GetAxis("Vertical-2");
         }
     }
 }
