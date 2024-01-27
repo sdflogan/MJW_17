@@ -14,6 +14,7 @@ namespace MJW.Simon
         [SerializeField] private Transform _content;
         [SerializeField] private SimonButtonUI _buttonPrefab;
         [SerializeField] private CanvasGroup _hud;
+        [SerializeField] private GameObject _callToAction;
 
         [Header("Config")]
         [SerializeField] private float _secondsFade;
@@ -22,12 +23,15 @@ namespace MJW.Simon
         private int _currentNoteIndex = 0;
 
         public bool IsActive;
-        public bool IsPlayer;
+        public bool CanInteract;
 
         #region Unity events
 
         private void Awake()
         {
+            _hud.alpha = 0;
+            _callToAction.SetActive(false);
+
             SimonInputListener.OnInputDetected += OnInputDetected;
             GameEvents.OnSimonEnd += OnSimonEnd;
         }
@@ -40,9 +44,21 @@ namespace MJW.Simon
 
         #endregion
 
+        public void UpdatePlayers(int count)
+        {
+            if (IsActive && count >= 2)
+            {
+                DisplayHUD();
+            }
+            else
+            {
+                HideHUD();
+            }
+        }
+
         private void OnInputDetected(ButtonType button)
         {
-            if (IsActive)
+            if (CanInteract)
             {
                 bool success = Evaluate(button);
                 int errors = 0;
@@ -59,7 +75,7 @@ namespace MJW.Simon
                     errors++;
                 }
 
-                if (_currentNoteIndex >= _currentButtons.Count)
+                if (_currentNoteIndex + 1 >= _currentButtons.Count)
                 {
                     // TODO
                     GameEvents.OnSheetCompled?.Invoke(errors);
@@ -73,23 +89,46 @@ namespace MJW.Simon
 
         private void OnSimonEnd()
         {
-            ClearButtons();
+            HideHUD(true);
         }
 
         private void DisplayHUD()
         {
+            CanInteract = true;
+
+            if (_hud.alpha == 1) return;
+
+            _hud.DOKill(true);
             _hud.DOFade(1f, _secondsFade).SetEase(Ease.Linear).Play();
+            _callToAction.SetActive(false);
         }
 
-        private void HideHUD()
+        private void HideHUD(bool clear = false)
         {
-            _hud.DOFade(0f, _secondsFade).SetEase(Ease.Linear).Play();
+            CanInteract = false;
+
+            if (_hud.alpha == 0)
+            {
+                if (clear) ClearButtons();
+                return;
+            }
+
+            _hud.DOKill(true);
+
+            _hud.DOFade(0f, _secondsFade).
+                SetEase(Ease.Linear).
+                OnComplete(
+                () =>
+                {
+                    if (clear) ClearButtons();
+                }).Play();
         }
 
         public void LaunchArea()
         {
             IsActive = true;
             LoadSheet();
+            _callToAction.SetActive(true);
         }
 
         private void LoadSheet()
@@ -113,6 +152,8 @@ namespace MJW.Simon
 
         private void ClearButtons()
         {
+            _callToAction.SetActive(false);
+
             foreach(var button in _currentButtons)
             {
                 SimplePool.Despawn(button.gameObject);

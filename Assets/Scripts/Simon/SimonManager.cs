@@ -20,6 +20,8 @@ namespace MJW.Simon
         [SerializeField] private float _simonMaxStartSeconds;
         [SerializeField] private float _simonDurationSeconds;
 
+        [SerializeField] private bool _debug;
+
         private float _currentSimonSeconds;
         private Coroutine _simonCoroutine;
 
@@ -53,9 +55,16 @@ namespace MJW.Simon
 
         #endregion
 
+        private void Start()
+        {
+            if (_debug) OnGameReady();
+        }
+
         public void OnGameReady()
         {
             float waitTime = Random.Range(_simonMinStartSeconds, _simonMaxStartSeconds);
+
+            Debug.Log("Next simon on: " + waitTime);
 
             Invoke(nameof(StartSimon), waitTime);
         }
@@ -77,7 +86,7 @@ namespace MJW.Simon
         private IEnumerator SimonEvent()
         {
             EventRunning = true;
-            _currentSimonSeconds = _simonMaxStartSeconds;
+            _currentSimonSeconds = _simonDurationSeconds;
             _areas[Random.Range(0, _areas.Count - 1)].LaunchArea();
 
             GameEvents.OnSimonStart?.Invoke();
@@ -92,6 +101,7 @@ namespace MJW.Simon
             {
                 // TODO PENALIZAR
                 GameEvents.OnSimonEnd?.Invoke();
+                OnGameReady();
             }
         }
 
