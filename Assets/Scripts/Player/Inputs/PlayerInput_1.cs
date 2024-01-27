@@ -1,5 +1,6 @@
 
 using MJW.Player.Inputs;
+using Rewired;
 using UnityEngine;
 
 namespace MJW.Player
@@ -8,17 +9,17 @@ namespace MJW.Player
     {
         public float GetAxisHorizontal()
         {
-            return Input.GetAxis("Horizontal");
+            return ReInput.players.GetPlayer(0).GetAxis("Move Horizontal Left");
         }
 
         public float GetAxisVertical()
         {
-            return Input.GetAxis("Vertical");
+            return ReInput.players.GetPlayer(0).GetAxis("Move Vertical Left");
         }
 
         public bool GetInteractButton()
         {
-            return Input.GetButtonDown("Fire1");
+            return ReInput.players.GetPlayer(0).GetButtonDown("Action Left");
         }
     }
 }
