@@ -170,6 +170,8 @@ namespace MJW.Player
         {
             var seq = DOTween.Sequence();
 
+            _player.TriggerTongue();
+
             seq.AppendCallback(() => _tongue.transform.parent = item.transform);
 
             seq.Append(_tongue.transform.DOLocalMove(Vector3.zero, _tongueGoSeconds).SetEase(Ease.Linear));

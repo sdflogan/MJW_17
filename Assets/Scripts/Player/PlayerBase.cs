@@ -74,6 +74,11 @@ namespace MJW.Player
 
         #endregion
 
+        public void TriggerTongue()
+        {
+            _animator.SetTrigger("Pick");
+        }
+
         #region Private methods
 
         private void GetInputs()
@@ -84,7 +89,7 @@ namespace MJW.Player
 
         private void UpdateCharacterAnimator()
         {
-            //_animator.SetFloat("Speed", _currentSpeed, 0.1f, Time.deltaTime);
+            _animator.SetFloat("Speed", _currentSpeed, 0.1f, Time.deltaTime);
         }
 
         private void RotateCharacter()
