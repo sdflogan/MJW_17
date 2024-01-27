@@ -99,7 +99,6 @@ namespace MJW.Simon
         private void ButtonDetected(ButtonType button)
         {
             OnInputDetected?.Invoke(button);
-            Debug.LogError(button);
         }
     }
 }

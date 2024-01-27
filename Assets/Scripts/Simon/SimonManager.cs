@@ -1,5 +1,7 @@
 
+using MJW.Game;
 using MJW.Utils;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,14 +15,84 @@ namespace MJW.Simon
         [SerializeField] private Color _success;
         [SerializeField] private Color _error;
 
+        [Header("Config")]
+        [SerializeField] private float _simonMinStartSeconds;
+        [SerializeField] private float _simonMaxStartSeconds;
+        [SerializeField] private float _simonDurationSeconds;
+
+        private float _currentSimonSeconds;
+        private Coroutine _simonCoroutine;
+
         public Color SuccessColor => _success;
         public Color ErrorColor => _error;
 
+        public bool EventRunning { get; private set; }
+
         public Difficulty CurrentDifficulty { get; private set; }
 
-        public void SelectRandomArea()
+        #region Unity events
+
+        private void Awake()
         {
+            GameEvents.OnGameReady += OnGameReady;
+            GameEvents.OnSheetCompled += OnSheetCompleted;
+            
+        }
+
+        private void OnDestroy()
+        {
+            GameEvents.OnGameReady -= OnGameReady;
+            GameEvents.OnSheetCompled -= OnSheetCompleted;
+
+            if (_simonCoroutine != null)
+            {
+                StopCoroutine(_simonCoroutine);
+                _simonCoroutine = null;
+            }
+        }
+
+        #endregion
+
+        public void OnGameReady()
+        {
+            float waitTime = Random.Range(_simonMinStartSeconds, _simonMaxStartSeconds);
+
+            Invoke(nameof(StartSimon), waitTime);
+        }
+
+        public void OnSheetCompleted(int errors)
+        {
+            EventRunning = false;
+
+            GameEvents.OnSimonEnd?.Invoke();
+
+            OnGameReady();
+        }
+
+        public void StartSimon()
+        {
+            _simonCoroutine = StartCoroutine(SimonEvent());
+        }
+
+        private IEnumerator SimonEvent()
+        {
+            EventRunning = true;
+            _currentSimonSeconds = _simonMaxStartSeconds;
             _areas[Random.Range(0, _areas.Count - 1)].LaunchArea();
+
+            GameEvents.OnSimonStart?.Invoke();
+
+            while (_currentSimonSeconds > 0 && EventRunning)
+            {
+                yield return new WaitForSeconds(0.5f);
+                _currentSimonSeconds -= 0.5f;
+            }
+
+            if (EventRunning)
+            {
+                // TODO PENALIZAR
+                GameEvents.OnSimonEnd?.Invoke();
+            }
         }
 
         public List<ButtonType> GenerateSheet()
@@ -46,6 +118,5 @@ namespace MJW.Simon
 
             return data.Icon;
         }
-        
     }
 }

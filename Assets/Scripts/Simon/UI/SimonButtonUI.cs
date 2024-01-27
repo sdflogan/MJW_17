@@ -18,6 +18,22 @@ namespace MJW.Simon.UI
             _type = buttonType;
         }
 
+        public bool Evaluate(ButtonType input)
+        {
+            var result = Check(input);
+
+            if (result)
+            {
+                Success();
+            }
+            else
+            {
+                Error();
+            }
+
+            return result;
+        }
+
         public bool Check(ButtonType input)
         {
             return input == _type;

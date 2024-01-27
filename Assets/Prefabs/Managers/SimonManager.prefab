@@ -74,3 +74,6 @@ MonoBehaviour:
   _areas: []
   _success: {r: 0.34117648, g: 0.7921569, b: 0.3882353, a: 0.49803922}
   _error: {r: 0.7924528, g: 0.20484152, b: 0.20484152, a: 0.49803922}
+  _simonMinStartSeconds: 2
+  _simonMaxStartSeconds: 5
+  _simonDurationSeconds: 20
