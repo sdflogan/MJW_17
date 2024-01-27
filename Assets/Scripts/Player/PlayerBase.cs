@@ -31,6 +31,7 @@ namespace MJW.Player
         #region Private properties
 
         private float _currentSpeed;
+        private float _currentVelocity;
 
         private float _moveX;
         private float _moveY;
@@ -79,6 +80,13 @@ namespace MJW.Player
         {
             _moveX = _playerInput.GetAxisHorizontal();
             _moveY = _playerInput.GetAxisVertical();
+
+            if (_type == PlayerType.Player_2)
+            {
+                Debug.LogError(_moveX);
+                Debug.LogError(_moveY);
+            }
+            
         }
 
         private void UpdateCharacterAnimator()

@@ -196,11 +196,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tongue: {fileID: 6768571726605078918}
   _player: {fileID: 7329815279980895465}
+  _target: {fileID: 0}
   _targetLayer:
     serializedVersion: 2
     m_Bits: 64
   _pickRadius: 2.5
-  _secondsCooldown: 2
+  _pickCooldown: 1
+  _interactCooldown: 1
   _tongueGoSeconds: 0.5
   _tongueBackSeconds: 0.5
 --- !u!54 &-1409429755921281638
