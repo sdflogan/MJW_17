@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6492007949824700605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6492007949824700607}
+  - component: {fileID: 6492007949824700606}
+  m_Layer: 0
+  m_Name: SimonManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6492007949824700607
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6492007949824700605}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6492007949824700606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6492007949824700605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af928100a63e98408082be7e92d1afe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttons:
+  - _type: 0
+    _icon: {fileID: 21300000, guid: 1538d90d9a9b0c54c9252725bff1d189, type: 3}
+  - _type: 1
+    _icon: {fileID: 21300000, guid: fb8eefd8659e724429fb14436baeaa1b, type: 3}
+  - _type: 2
+    _icon: {fileID: 21300000, guid: 8d1a63bad3ae6384394bc2c0f3037db2, type: 3}
+  - _type: 3
+    _icon: {fileID: 21300000, guid: 65661015db10e764997c340a04cdcd87, type: 3}
+  - _type: 4
+    _icon: {fileID: 21300000, guid: 233215e8a2fccdc46a98922f05aca5ca, type: 3}
+  - _type: 5
+    _icon: {fileID: 21300000, guid: 576f656f53144024496ac905e4617941, type: 3}
+  - _type: 6
+    _icon: {fileID: 21300000, guid: 60a7babde574b6f40baa50934a1fff0d, type: 3}
+  - _type: 7
+    _icon: {fileID: 21300000, guid: d2a65405e18584a41a67dc5f062e1164, type: 3}
+  _difficulty:
+  - Diff: 1
+    MinNotes: 1
+    MaxNotes: 3
+  - Diff: 2
+    MinNotes: 2
+    MaxNotes: 6
+  - Diff: 0
+    MinNotes: 4
+    MaxNotes: 8
+  _areas: []
+  _success: {r: 0.34117648, g: 0.7921569, b: 0.3882353, a: 0.49803922}
+  _error: {r: 0.7924528, g: 0.20484152, b: 0.20484152, a: 0.49803922}

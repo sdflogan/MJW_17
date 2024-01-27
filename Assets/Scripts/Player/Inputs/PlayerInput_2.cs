@@ -9,12 +9,12 @@ namespace MJW.Player
     {
         public float GetAxisHorizontal()
         {
-            return ReInput.players.GetPlayer(0).GetAxis("Move Horizontal Right");
+            return ReInput.players.GetPlayer(0).GetAxis("Move Vertical Right");
         }
 
         public float GetAxisVertical()
         {
-            return ReInput.players.GetPlayer(0).GetAxis("Move Vertical Right");
+            return ReInput.players.GetPlayer(0).GetAxis("Move Horizontal Right");
         }
 
         public bool GetInteractButton()
