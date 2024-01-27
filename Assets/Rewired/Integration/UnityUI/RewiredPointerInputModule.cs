@@ -609,7 +609,8 @@ namespace Rewired.Integration.UnityUI {
             bool IMouseInputSource.enabled {
                 get {
                     TryUpdate();
-                    return Input.mousePresent;
+                    return true;
+                    // return Input.mousePresent; // REMOVED: Input.mousePresent is unreliable. Some platforms will return false when a mouse is present and working.
                 }
             }
 
