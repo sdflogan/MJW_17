@@ -200,11 +200,11 @@ MonoBehaviour:
   _targetLayer:
     serializedVersion: 2
     m_Bits: 64
-  _pickRadius: 2.5
+  _pickRadius: 2
   _pickCooldown: 1
   _interactCooldown: 1
-  _tongueGoSeconds: 0.5
-  _tongueBackSeconds: 0.5
+  _tongueGoSeconds: 0.1
+  _tongueBackSeconds: 0.1
 --- !u!54 &-1409429755921281638
 Rigidbody:
   m_ObjectHideFlags: 0

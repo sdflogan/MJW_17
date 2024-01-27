@@ -147,8 +147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 1
   IsFree: 0
-  _force: 1
-  _distanceMultiplier: 1.5
+  _force: 1.7
+  _distanceMultiplier: 2.48
   _rb: {fileID: 3130364103114641801}
   _collider: {fileID: 6130695483858412338}
 --- !u!54 &3130364103114641801
