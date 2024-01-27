@@ -15,5 +15,10 @@ namespace MJW.Player
         {
             return Input.GetAxis("Vertical");
         }
+
+        public bool GetInteractButton()
+        {
+            return Input.GetButtonDown("Fire1");
+        }
     }
 }

@@ -5,5 +5,6 @@ namespace MJW.Player.Inputs
     {
         public float GetAxisHorizontal();
         public float GetAxisVertical();
+        public bool GetInteractButton();
     }
 }

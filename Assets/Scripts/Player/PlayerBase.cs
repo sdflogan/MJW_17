@@ -9,13 +9,15 @@ namespace MJW.Player
     {
         #region Inspector Properties
 
+        [Header("References")]
+        [SerializeField] private Rigidbody _rb;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private StickController _pickController;
+
         [SerializeField] private PlayerType _type;
 
         [SerializeField] private float _maxSpeed;
         [SerializeField] private float _maxRotationSpeed;
-
-        [SerializeField] private Rigidbody _rb;
-        [SerializeField] private Animator _animator;
 
         #endregion
 
@@ -53,6 +55,8 @@ namespace MJW.Player
             {
                 _playerInput = new PlayerInput_2();
             }
+
+            _pickController.Init(_playerInput);
         }
 
         private void Update()
