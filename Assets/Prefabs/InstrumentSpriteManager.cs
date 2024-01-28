@@ -120,19 +120,19 @@ public class InstrumentSpriteManager : Singleton<InstrumentSpriteManager>
     }
 
     public void PonerInstr_xilo() {
-        PonerInstr(0);
+        PonerInstr(2);
     }
     public void PonerInstr_micro()
     {
-        PonerInstr(1);
+        PonerInstr(3);
     }
     public void PonerInstr_tambor()
     {
-        PonerInstr(2);
+        PonerInstr(1);
     }
     public void PonerInstr_banjo()
     {
-        PonerInstr(3);
+        PonerInstr(0);
     }
 
 }
