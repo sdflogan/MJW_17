@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,12 @@ using UnityEngine;
 public class Impactar : MonoBehaviour
 {
     public float str = 1000;
+    [SerializeField] private float secondsToDissappear = 3.0f;
+
+    public void Destroy()
+    {
+        Destroy(gameObject, secondsToDissappear);
+    }
 
     void OnCollisionEnter(Collision collision)
     {
