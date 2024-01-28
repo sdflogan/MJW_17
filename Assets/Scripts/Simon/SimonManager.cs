@@ -16,6 +16,9 @@ namespace MJW.Simon
         [SerializeField] private Color _success;
         [SerializeField] private Color _error;
 
+        public Sprite SuccessIcon;
+        public Sprite FailIcon;
+
         [Header("Config")]
         [SerializeField] private float _simonMinStartSeconds;
         [SerializeField] private float _simonMaxStartSeconds;

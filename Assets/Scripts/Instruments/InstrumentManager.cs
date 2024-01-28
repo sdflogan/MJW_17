@@ -82,8 +82,9 @@ namespace MJW.Instruments
 
         #endregion
 
-        private InstrumentSheet Find(InstrumentType instrument, int Notes)
+        private InstrumentSheet Find(InstrumentType instrument, int notes)
         {
+            Debug.LogError("find " + notes);
             var sheets = new List<InstrumentSheet>();
 
             switch (instrument)
@@ -91,7 +92,7 @@ namespace MJW.Instruments
                 case InstrumentType.Banjo:
                     foreach(var banjo in _banjoSheets)
                     {
-                        if (banjo.Notes.Count == Notes)
+                        if (banjo.Notes.Count == notes)
                         {
                             sheets.Add(banjo);
                         }
@@ -101,7 +102,7 @@ namespace MJW.Instruments
                 case InstrumentType.Tambor:
                     foreach (var perc in _percSheets)
                     {
-                        if (perc.Notes.Count == Notes)
+                        if (perc.Notes.Count == notes)
                         {
                             sheets.Add(perc);
                         }
@@ -111,7 +112,7 @@ namespace MJW.Instruments
                 case InstrumentType.Trompeta:
                     foreach (var xyl in _xylSheets)
                     {
-                        if (xyl.Notes.Count == Notes)
+                        if (xyl.Notes.Count == notes)
                         {
                             sheets.Add(xyl);
                         }

@@ -49,7 +49,7 @@ namespace MJW.Audio
                 return _clips[soundType];
             }
 
-            Debug.LogError("[Audio Manager] Clip not found.");
+            Debug.LogError("[Audio Manager] Clip not found: " + soundType);
 
             return null;
         }
