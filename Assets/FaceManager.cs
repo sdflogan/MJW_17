@@ -99,7 +99,7 @@ public class FaceManager : Singleton<FaceManager>
         if (_spriteRenderer != null)
         {
             Vector3 originalScale = _spriteRenderer.transform.localScale;
-            Vector3 targetScale = originalScale * 1.4f;
+            Vector3 targetScale = originalScale * 1.2f;
 
             // Create a new sequence
             Sequence scaleSequence = DOTween.Sequence();
