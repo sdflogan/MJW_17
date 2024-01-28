@@ -119,6 +119,8 @@ public class FaceManager : Singleton<FaceManager>
             // Play the sequence
             scaleSequence.Play();
 
+            Camera.main.DOShakePosition(0.1f, 1f).Play();
+
             // Set the sprite based on the integer value
             switch (i)
             {

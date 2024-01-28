@@ -1,4 +1,5 @@
 
+using DG.Tweening;
 using MJW.Utils;
 using Rewired;
 using System;
@@ -98,6 +99,7 @@ namespace MJW.Simon
 
         private void ButtonDetected(ButtonType button)
         {
+            Camera.main.DOShakePosition(0.1f, 0.5f).Play();
             OnInputDetected?.Invoke(button);
         }
     }
