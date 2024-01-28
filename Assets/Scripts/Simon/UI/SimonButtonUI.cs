@@ -41,14 +41,12 @@ namespace MJW.Simon.UI
 
         public void Success()
         {
-            _result.enabled = true;
-            _result.color = SimonManager.Instance.SuccessColor;
+            _icon.sprite = SimonManager.Instance.SuccessIcon;
         }
 
         public void Error()
         {
-            _result.enabled = true;
-            _result.color = SimonManager.Instance.ErrorColor;
+            _icon.sprite = SimonManager.Instance.FailIcon;
         }
     }
 }

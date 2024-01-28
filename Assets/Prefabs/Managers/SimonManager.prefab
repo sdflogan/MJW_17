@@ -46,21 +46,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttons:
   - _type: 0
-    _icon: {fileID: 21300000, guid: 1538d90d9a9b0c54c9252725bff1d189, type: 3}
+    _icon: {fileID: 21300000, guid: 80767af4d4c4b544d96c92b828371e63, type: 3}
   - _type: 1
-    _icon: {fileID: 21300000, guid: fb8eefd8659e724429fb14436baeaa1b, type: 3}
+    _icon: {fileID: 21300000, guid: 6ad7d35a8c126ab4fadeacb323a49a3b, type: 3}
   - _type: 2
-    _icon: {fileID: 21300000, guid: 8d1a63bad3ae6384394bc2c0f3037db2, type: 3}
+    _icon: {fileID: 21300000, guid: b121708388d351242929ccc8d89cd0d8, type: 3}
   - _type: 3
-    _icon: {fileID: 21300000, guid: 65661015db10e764997c340a04cdcd87, type: 3}
+    _icon: {fileID: 21300000, guid: 1404b22e0b4888945b8f29924ea25cc3, type: 3}
   - _type: 4
-    _icon: {fileID: 21300000, guid: 233215e8a2fccdc46a98922f05aca5ca, type: 3}
+    _icon: {fileID: 21300000, guid: 417a6d8f48226b64baf72071c32abd60, type: 3}
   - _type: 5
-    _icon: {fileID: 21300000, guid: 576f656f53144024496ac905e4617941, type: 3}
+    _icon: {fileID: 21300000, guid: 2938257e410a0134e829d0e1345d14a4, type: 3}
   - _type: 6
-    _icon: {fileID: 21300000, guid: 60a7babde574b6f40baa50934a1fff0d, type: 3}
+    _icon: {fileID: 21300000, guid: 4a0498f870b8f7a44a9ca527d1e1228b, type: 3}
   - _type: 7
-    _icon: {fileID: 21300000, guid: d2a65405e18584a41a67dc5f062e1164, type: 3}
+    _icon: {fileID: 21300000, guid: 9fbbf9e465fb8bf48ae5405b7884ac84, type: 3}
   _sheetData:
   - NotesAmount: 2
   - NotesAmount: 4
@@ -68,6 +68,8 @@ MonoBehaviour:
   _areas: []
   _success: {r: 0.34117648, g: 0.7921569, b: 0.3882353, a: 0.49803922}
   _error: {r: 0.7924528, g: 0.20484152, b: 0.20484152, a: 0.49803922}
+  SuccessIcon: {fileID: 21300000, guid: 5a76a251c5c87494e9d32d1011bb1f01, type: 3}
+  FailIcon: {fileID: 21300000, guid: 383707057496ba94d9bd2ab7f05315d0, type: 3}
   _simonMinStartSeconds: 2
   _simonMaxStartSeconds: 5
   _simonDurationSeconds: 20
