@@ -11,19 +11,21 @@ public class Garza : MonoBehaviour
     [SerializeField] private Transform _posInit;
     [SerializeField] private Transform _posFinal;
     [SerializeField] private GameObject _impactPrefab;
+    [SerializeField] private float _timeDropping;
+    [SerializeField] private float _timeToDestroy;
 
     private void Start()
     {
         Sequence sequence = DOTween.Sequence();
-        sequence.AppendInterval(2f);
-        sequence.Append(visual.transform.DOMoveY(_posFinal.position.y, 1f));
+        sequence.AppendInterval(1.5f);
+        sequence.Append(visual.transform.DOMoveY(_posFinal.position.y, _timeDropping));
         sequence.AppendCallback((() =>
         {
             Instantiate(_impactPrefab, gameObject.transform);
         }));
         sequence.Play();
         
-        Destroy(gameObject, 4f);
+        Destroy(gameObject, _timeToDestroy);
     }
 
     

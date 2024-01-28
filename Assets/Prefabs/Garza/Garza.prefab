@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c24dc1a15c902d34aa86a8885104ace4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -135,6 +135,8 @@ MonoBehaviour:
   _posInit: {fileID: 6386888120963542238}
   _posFinal: {fileID: 3519487485049490267}
   _impactPrefab: {fileID: 7761525593870820728, guid: 1ffaeef6b52e3c04090ffbd96bdb531c, type: 3}
+  _timeDropping: 1
+  _timeToDestroy: 4
 --- !u!1 &6386888121765265181
 GameObject:
   m_ObjectHideFlags: 0
