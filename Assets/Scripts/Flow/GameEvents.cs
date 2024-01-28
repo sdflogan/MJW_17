@@ -9,6 +9,7 @@ namespace MJW.Game
         public static Action OnGameStarted;
         public static Action OnGameReady;
         public static Action OnGameEnd;
+        public static Action OnGameRestart;
 
         public static Action OnSimonStart;
         public static Action OnSimonEnd;
