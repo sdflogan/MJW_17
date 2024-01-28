@@ -8,6 +8,7 @@ namespace MJW.Game
     {
         public static Action OnGameStarted;
         public static Action OnGameReady;
+        public static Action OnGameEnd;
 
         public static Action OnSimonStart;
         public static Action OnSimonEnd;
@@ -22,5 +23,7 @@ namespace MJW.Game
         public static Action OnStickFailed;
 
         public static Action OnBurnt;
+
+        public static Action<int> OnTimeUpdated;
     }
 }
