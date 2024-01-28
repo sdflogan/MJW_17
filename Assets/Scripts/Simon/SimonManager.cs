@@ -101,19 +101,12 @@ namespace MJW.Simon
             _simonCoroutine = StartCoroutine(SimonEvent());
         }
 
-        private int RandomAreaIndex()
-        {
-
-        }
-
         private IEnumerator SimonEvent()
         {
             EventRunning = true;
             _currentSimonSeconds = _simonDurationSeconds;
 
             int randomIndex = Random.Range(0, _areas.Count - 1);
-
-            Debug.LogError("Random index: " + randomIndex);
 
             _areas[randomIndex].LaunchArea();
 

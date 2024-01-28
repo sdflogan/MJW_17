@@ -157,6 +157,16 @@ namespace MJW.Instruments
                     }
                     break;
 
+                case InstrumentType.Vocal:
+                    foreach (var xyl in _xylSheets)
+                    {
+                        if (xyl.Notes.Count == notes)
+                        {
+                            sheets.Add(xyl);
+                        }
+                    }
+                    break;
+
                 default:
                     Debug.LogError("type is undefined");
                     break;
@@ -183,6 +193,9 @@ namespace MJW.Instruments
                 case InstrumentType.Trompeta:
                     return SoundType.xylOk;
 
+                case InstrumentType.Vocal:
+                    return SoundType.xylOk;
+
                 default:
                     Debug.LogError("type is undefined");
                     break;
@@ -202,6 +215,9 @@ namespace MJW.Instruments
                     return SoundType.percFail;
 
                 case InstrumentType.Trompeta:
+                    return SoundType.xylFail;
+
+                case InstrumentType.Vocal:
                     return SoundType.xylFail;
 
                 default:
