@@ -4,8 +4,11 @@ using UnityEngine;
 using DG.Tweening;
 using System.Diagnostics;
 using System.Collections.Specialized;
+using MJW.Utils;
+using MJW.Game;
+using MJW.Instruments;
 
-public class FaceManager : MonoBehaviour
+public class FaceManager : Singleton<FaceManager>
 {
     public Sprite cara_seria;
     public Sprite cara_carcajada;
@@ -13,67 +16,122 @@ public class FaceManager : MonoBehaviour
     public Sprite cara_enfadada;
     public Sprite cara_orden;
 
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+
+    [SerializeField] private float _seconds;
+    [SerializeField] private AnimationCurve _customCurve;
+
+    private int _successCount = 0;
+
+    #region Unity events
+
+    private void Awake()
+    {
+        GameEvents.OnGameReady += OnGameReady;
+        GameEvents.OnSimonStart += OnSimonStarted;
+        GameEvents.OnSimonEnd += OnSimonEnd;
+        GameEvents.OnNoteFailed += OnNoteFailed;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.OnGameReady -= OnGameReady;
+        GameEvents.OnSimonStart -= OnSimonStarted;
+        GameEvents.OnSimonEnd -= OnSimonEnd;
+        GameEvents.OnNoteFailed -= OnNoteFailed;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        // Assuming your GameObject has a SpriteRenderer component
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        if (spriteRenderer == null)
+        if (_spriteRenderer == null)
         {
             // If there's no SpriteRenderer, you may need to add one or modify accordingly
             //Debug.LogError("SpriteRenderer component not found on GameObject: " + gameObject.name);
         }
 
+        PonerCara_seria();
+    }
+
+    #endregion
+
+    #region Callbacks
+
+    private void OnGameReady()
+    {
+
+    }
+
+    private void OnSimonStarted()
+    {
         PonerCara_orden();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnSimonEnd(int errors)
     {
-        // You can add any additional update logic if needed
+        if (errors > 0 || errors < 0)
+        {
+            PonerCara_seria();
+        }
+        else
+        {
+            // no errors
+            _successCount++;
+
+            if (_successCount > 2)
+            {
+                PonerCara_sonrisa();
+            }
+            else
+            {
+                PonerCara_carcajada();
+            }
+        }
     }
+
+    private void OnNoteFailed(InstrumentType type)
+    {
+        PonerCara_enfadada();
+    }
+
+    #endregion
 
     void PonerCara(int i)
     {
-        if (spriteRenderer != null)
+        if (_spriteRenderer != null)
         {
-            Vector3 originalScale = transform.localScale;
+            Vector3 originalScale = _spriteRenderer.transform.localScale;
             Vector3 targetScale = originalScale * 1.4f;
 
             // Create a new sequence
             Sequence scaleSequence = DOTween.Sequence();
 
             // Add the first tween to scale up
-            scaleSequence.Append(transform.DOScale(targetScale, 0.4f).SetEase(Ease.Linear));
+            scaleSequence.Append(_spriteRenderer.transform.DOScale(targetScale, _seconds).SetEase(_customCurve));
 
             // Add the second tween to scale back down
-            scaleSequence.Append(transform.DOScale(originalScale, 0.4f).SetEase(Ease.Linear));
+            scaleSequence.Append(_spriteRenderer.transform.DOScale(originalScale, _seconds).SetEase(_customCurve));
 
             // Play the sequence
             scaleSequence.Play();
-
-
 
             // Set the sprite based on the integer value
             switch (i)
             {
                 case 0:
-                    spriteRenderer.sprite = cara_seria;
+                    _spriteRenderer.sprite = cara_seria;
                     break;
                 case 1:
-                    spriteRenderer.sprite = cara_carcajada;
+                    _spriteRenderer.sprite = cara_carcajada;
                     break;
                 case 2:
-                    spriteRenderer.sprite = cara_sonrisa;
+                    _spriteRenderer.sprite = cara_sonrisa;
                     break;
                 case 3:
-                    spriteRenderer.sprite = cara_enfadada;
+                    _spriteRenderer.sprite = cara_enfadada;
                     break;
                 case 4:
-                    spriteRenderer.sprite = cara_orden;
+                    _spriteRenderer.sprite = cara_orden;
                     break;
                 default:
                     // Handle the default case or leave it empty if not needed

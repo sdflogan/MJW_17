@@ -12,7 +12,7 @@ namespace MJW.Game
         public static Action OnGameRestart;
 
         public static Action OnSimonStart;
-        public static Action OnSimonEnd;
+        public static Action<int> OnSimonEnd;
 
         public static Action<InstrumentType> OnNoteFailed;
         public static Action<InstrumentType> OnNoteSuccess;
