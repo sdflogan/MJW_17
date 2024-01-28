@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 830b2bd42d43aac49855c858fd9b27da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visual: {fileID: 6386888120963542237}
   _posInit: {fileID: 6386888120963542238}
   _posFinal: {fileID: 6386888121765265182}
   _impactPrefab: {fileID: 7761525593870820728, guid: 1ffaeef6b52e3c04090ffbd96bdb531c, type: 3}

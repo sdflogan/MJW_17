@@ -9,8 +9,9 @@ namespace MJW.Garza
 {
     public class GarzaManager : MonoBehaviour
     {
+
+        [Header("Config")] 
         
-        [Header("Config")]
         [SerializeField] private float _garzaMinStartSeconds;
         [SerializeField] private float _garzaMaxStartSeconds;
         [SerializeField] private GameObject _garzaPrefab;
