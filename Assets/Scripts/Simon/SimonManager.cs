@@ -11,7 +11,7 @@ namespace MJW.Simon
     public class SimonManager : Singleton<SimonManager>
     {
         [SerializeField] private List<SimonButtonData> _buttons;
-        [SerializeField] private List<SheetDifficulty> _difficulty;
+        [SerializeField] private List<SheetData> _sheetData;
         [SerializeField] private List<SimonArea> _areas;
         [SerializeField] private Color _success;
         [SerializeField] private Color _error;
@@ -30,8 +30,6 @@ namespace MJW.Simon
         public Color ErrorColor => _error;
 
         public bool EventRunning { get; private set; }
-
-        public Difficulty CurrentDifficulty { get; private set; }
 
         #region Unity events
 
@@ -76,11 +74,25 @@ namespace MJW.Simon
 
             GameEvents.OnSimonEnd?.Invoke();
 
+            if (_simonCoroutine != null)
+            {
+                StopCoroutine(SimonEvent());
+                _simonCoroutine = null;
+            }
+
+            Debug.LogError("Terminando simón por sheet");
+
             OnGameReady();
         }
 
         public void StartSimon()
         {
+            if (_simonCoroutine != null)
+            {
+                StopCoroutine(_simonCoroutine);
+                _simonCoroutine = null;
+            }
+
             _simonCoroutine = StartCoroutine(SimonEvent());
         }
 
@@ -101,20 +113,21 @@ namespace MJW.Simon
             if (EventRunning)
             {
                 // TODO PENALIZAR
+                Debug.LogError("Terminando simón por tiempo");
                 GameEvents.OnSimonEnd?.Invoke();
                 OnGameReady();
             }
+
+            _simonCoroutine = null;
         }
 
         public List<ButtonType> GenerateSheet()
         {
-            var difData = _difficulty.Find(element => element.Diff == CurrentDifficulty);
-
-            int sheetSize = Random.Range(difData.MinNotes, difData.MaxNotes);
+            var difData = _sheetData[Random.Range(0, _sheetData.Count)];
 
             List<ButtonType> buttons = new List<ButtonType>();
 
-            for (int i=0; i<sheetSize; i++)
+            for (int i=0; i<difData.NotesAmount; i++)
             {
                 ButtonType randomButton = (ButtonType)Random.Range(0, 7);
                 buttons.Add(randomButton);

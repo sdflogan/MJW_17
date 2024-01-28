@@ -46,8 +46,11 @@ namespace MJW.Simon
 
         #endregion
 
+        private int _lastPlayerCount = 0;
+
         public void UpdatePlayers(int count)
         {
+            _lastPlayerCount = count;
             if (IsActive && count >= 2)
             {
                 DisplayHUD();
@@ -92,6 +95,7 @@ namespace MJW.Simon
         private void OnSimonEnd()
         {
             HideHUD(true);
+            IsActive = false;
         }
 
         private void DisplayHUD()
@@ -129,13 +133,17 @@ namespace MJW.Simon
         public void LaunchArea()
         {
             IsActive = true;
+            ClearButtons();
             LoadSheet();
             _callToAction.SetActive(true);
+            UpdatePlayers(_lastPlayerCount);
         }
 
         private void LoadSheet()
         {
             var sheet = SimonManager.Instance.GenerateSheet();
+
+            Debug.LogError("Loaded new sheet: " + sheet.Count + " Buttons count: " + _currentButtons.Count);
 
             foreach (var note in sheet)
             {
@@ -158,6 +166,7 @@ namespace MJW.Simon
 
             foreach(var button in _currentButtons)
             {
+                button.transform.parent = null;
                 SimplePool.Despawn(button.gameObject);
             }
 

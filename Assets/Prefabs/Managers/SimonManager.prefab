@@ -61,16 +61,10 @@ MonoBehaviour:
     _icon: {fileID: 21300000, guid: 60a7babde574b6f40baa50934a1fff0d, type: 3}
   - _type: 7
     _icon: {fileID: 21300000, guid: d2a65405e18584a41a67dc5f062e1164, type: 3}
-  _difficulty:
-  - Diff: 1
-    MinNotes: 1
-    MaxNotes: 3
-  - Diff: 2
-    MinNotes: 2
-    MaxNotes: 6
-  - Diff: 0
-    MinNotes: 4
-    MaxNotes: 8
+  _sheetData:
+  - NotesAmount: 2
+  - NotesAmount: 4
+  - NotesAmount: 6
   _areas: []
   _success: {r: 0.34117648, g: 0.7921569, b: 0.3882353, a: 0.49803922}
   _error: {r: 0.7924528, g: 0.20484152, b: 0.20484152, a: 0.49803922}
