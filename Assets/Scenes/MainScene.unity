@@ -9194,6 +9194,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1242168070}
     m_Modifications:
+    - target: {fileID: 1010379648676383625, guid: 3d9a23f7304060d4c8a00cea22fb1960, type: 3}
+      propertyPath: _spriteRenderer
+      value: 
+      objectReference: {fileID: 1984115312}
     - target: {fileID: 7878316155790106044, guid: 3d9a23f7304060d4c8a00cea22fb1960, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -9242,7 +9246,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: FaceManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7878316155790106047, guid: 3d9a23f7304060d4c8a00cea22fb1960, type: 3}
+    - target: {fileID: 0}
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 1984115312}

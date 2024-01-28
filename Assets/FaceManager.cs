@@ -49,8 +49,6 @@ public class FaceManager : Singleton<FaceManager>
             // If there's no SpriteRenderer, you may need to add one or modify accordingly
             //Debug.LogError("SpriteRenderer component not found on GameObject: " + gameObject.name);
         }
-
-        PonerCara_seria();
     }
 
     #endregion
