@@ -22,8 +22,9 @@ public class Garza : MonoBehaviour
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(1.5f);
         sequence.Append(visual.transform.DOMoveY(_posFinal.position.y, _timeDropping));
-        sequence.AppendCallback((() =>
+        sequence.InsertCallback(1.5f + _timeDropping - 0.2f, (() =>
         {
+            Camera.main.DOShakePosition(0.1f, 1f).Play();
             AudioManager.Instance.PlaySFX(SoundType.garza_impact);
             Instantiate(_impactPrefab, gameObject.transform);
         }));
