@@ -51,10 +51,10 @@ namespace MJW.MyTime
 
             while (_currentSeconds > 0)
             {
-                yield return new WaitForSeconds(0.5f);
-                _currentSeconds -= 0.5f;
+                yield return new WaitForSeconds(1f);
+                _currentSeconds -= 1f;
 
-                GameEvents.OnTimeUpdated?.Invoke((int) Mathf.Round(_currentSeconds));
+                GameEvents.OnTimeUpdated?.Invoke((int)_currentSeconds);
             }
 
             GameEvents.OnTimeUpdated?.Invoke(0);

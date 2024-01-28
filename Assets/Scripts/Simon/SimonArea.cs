@@ -92,7 +92,7 @@ namespace MJW.Simon
             }
         }
 
-        private void OnSimonEnd()
+        private void OnSimonEnd(int errors)
         {
             HideHUD(true);
             IsActive = false;

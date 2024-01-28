@@ -75,7 +75,7 @@ namespace MJW.Simon
         {
             EventRunning = false;
 
-            GameEvents.OnSimonEnd?.Invoke();
+            GameEvents.OnSimonEnd?.Invoke(errors);
 
             if (_simonCoroutine != null)
             {
@@ -117,7 +117,7 @@ namespace MJW.Simon
             {
                 // TODO PENALIZAR
                 Debug.LogError("Terminando simón por tiempo");
-                GameEvents.OnSimonEnd?.Invoke();
+                GameEvents.OnSimonEnd?.Invoke(-1);
                 OnGameReady();
             }
 
