@@ -26,6 +26,8 @@ namespace MJW.Simon
 
         [SerializeField] private bool _debug;
 
+        private List<int> _indexStory = new List<int>();
+
         private float _currentSimonSeconds;
         private Coroutine _simonCoroutine;
 
@@ -99,11 +101,21 @@ namespace MJW.Simon
             _simonCoroutine = StartCoroutine(SimonEvent());
         }
 
+        private int RandomAreaIndex()
+        {
+
+        }
+
         private IEnumerator SimonEvent()
         {
             EventRunning = true;
             _currentSimonSeconds = _simonDurationSeconds;
-            _areas[Random.Range(0, _areas.Count - 1)].LaunchArea();
+
+            int randomIndex = Random.Range(0, _areas.Count - 1);
+
+            Debug.LogError("Random index: " + randomIndex);
+
+            _areas[randomIndex].LaunchArea();
 
             GameEvents.OnSimonStart?.Invoke();
 

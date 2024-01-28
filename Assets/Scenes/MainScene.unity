@@ -5419,7 +5419,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012110491267, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_Name
-      value: SimonArea (2)
+      value: SimonArea_micro
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012427395840, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5444,17 +5444,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6658057012110491266, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
   m_PrefabInstance: {fileID: 1047242208}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1047242210 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6658057012110491265, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
-  m_PrefabInstance: {fileID: 1047242208}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ce9e9f5db561224988245b2ea3dc373, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1049300306
 GameObject:
   m_ObjectHideFlags: 0
@@ -8457,7 +8446,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6658057012110491265, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: _instrument
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012110491266, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_RootOrder
@@ -8505,7 +8494,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012110491267, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_Name
-      value: SimonArea (1)
+      value: SimonArea_xilo
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012427395840, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8903,7 +8892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012110491267, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_Name
-      value: SimonArea (3)
+      value: SimonArea_banjo
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012427395840, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_SizeDelta.x
@@ -10675,7 +10664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6492007949824700606, guid: b876167458f8e6145a4da227a67fa51f, type: 3}
       propertyPath: _areas.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6492007949824700606, guid: b876167458f8e6145a4da227a67fa51f, type: 3}
       propertyPath: _areas.Array.data[0]
@@ -10688,7 +10677,7 @@ PrefabInstance:
     - target: {fileID: 6492007949824700606, guid: b876167458f8e6145a4da227a67fa51f, type: 3}
       propertyPath: _areas.Array.data[2]
       value: 
-      objectReference: {fileID: 1047242210}
+      objectReference: {fileID: 1842145167}
     - target: {fileID: 6492007949824700606, guid: b876167458f8e6145a4da227a67fa51f, type: 3}
       propertyPath: _areas.Array.data[3]
       value: 
@@ -10813,7 +10802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012110491267, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_Name
-      value: SimonArea
+      value: SimonArea_tambor
       objectReference: {fileID: 0}
     - target: {fileID: 6658057012427395840, guid: 60dcd297f5782ef4693f62b1e69bc66e, type: 3}
       propertyPath: m_SizeDelta.x

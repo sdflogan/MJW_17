@@ -133,6 +133,7 @@ namespace MJW.Simon
 
         public void LaunchArea()
         {
+            Debug.LogError("Area lanzada: " + _instrument);
             IsActive = true;
             ClearButtons();
             LoadSheet();
@@ -154,7 +155,7 @@ namespace MJW.Simon
             }
 
             _currentNoteIndex = 0;
-
+            Debug.LogError("Vamos a llamar a on sheet generated: " + _instrument);
             GameEvents.OnSheetGenerated?.Invoke(sheet.Count, _instrument);
         }
 

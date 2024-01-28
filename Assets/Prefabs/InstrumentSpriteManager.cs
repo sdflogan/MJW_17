@@ -42,6 +42,7 @@ public class InstrumentSpriteManager : Singleton<InstrumentSpriteManager>
 
     private void OnSheetGenerated(int notes, InstrumentType instrument)
     {
+        UnityEngine.Debug.LogError("INSTRUMENT PEDIDO: " + instrument);
         switch (instrument)
         {
             case InstrumentType.Banjo:
@@ -120,19 +121,19 @@ public class InstrumentSpriteManager : Singleton<InstrumentSpriteManager>
     }
 
     public void PonerInstr_xilo() {
-        PonerInstr(2);
+        PonerInstr(0);
     }
     public void PonerInstr_micro()
     {
-        PonerInstr(3);
+        PonerInstr(1);
     }
     public void PonerInstr_tambor()
     {
-        PonerInstr(1);
+        PonerInstr(2);
     }
     public void PonerInstr_banjo()
     {
-        PonerInstr(0);
+        PonerInstr(3);
     }
 
 }
