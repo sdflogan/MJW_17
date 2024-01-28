@@ -1,6 +1,7 @@
 
 using DG.Tweening;
 using MJW.Game;
+using MJW.Instruments;
 using MJW.Simon;
 using MJW.Simon.UI;
 using MJW.Utils;
@@ -18,6 +19,7 @@ namespace MJW.Simon
 
         [Header("Config")]
         [SerializeField] private float _secondsFade;
+        [SerializeField] private InstrumentType _instrument;
 
         private List<SimonButtonUI> _currentButtons = new List<SimonButtonUI>();
         private int _currentNoteIndex = 0;
@@ -66,19 +68,19 @@ namespace MJW.Simon
                 if (success)
                 {
                     // TODO
-                    GameEvents.OnButtonSuccess?.Invoke();
+                    GameEvents.OnNoteSuccess?.Invoke(_instrument);
                 }
                 else
                 {
                     // TODO
-                    GameEvents.OnButtonFailed?.Invoke();
+                    GameEvents.OnNoteFailed?.Invoke(_instrument);
                     errors++;
                 }
 
                 if (_currentNoteIndex + 1 >= _currentButtons.Count)
                 {
                     // TODO
-                    GameEvents.OnSheetCompled?.Invoke(errors);
+                    GameEvents.OnSheetCompled?.Invoke(errors, _instrument);
                 }
                 else
                 {

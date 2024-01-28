@@ -1,5 +1,6 @@
 
 using MJW.Game;
+using MJW.Instruments;
 using MJW.Utils;
 using System.Collections;
 using System.Collections.Generic;
@@ -69,7 +70,7 @@ namespace MJW.Simon
             Invoke(nameof(StartSimon), waitTime);
         }
 
-        public void OnSheetCompleted(int errors)
+        public void OnSheetCompleted(int errors, InstrumentType instrument)
         {
             EventRunning = false;
 
