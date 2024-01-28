@@ -4,59 +4,93 @@ using UnityEngine;
 using DG.Tweening;
 using System.Diagnostics;
 using System.Collections.Specialized;
+using MJW.Utils;
+using MJW.Game;
+using MJW.Instruments;
 
-public class InstrumentSpriteManager : MonoBehaviour
+public class InstrumentSpriteManager : Singleton<InstrumentSpriteManager>
 {
     public Sprite xilo;
     public Sprite micro;    
     public Sprite tambor;
     public Sprite banjo;
 
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private float _seconds;
+    [SerializeField] private float _waitSeconds;
+    [SerializeField] private float _hideSeconds;
+    [SerializeField] private float _bigScale = 1.4f;
 
+    #region Unity events
 
-
-    private SpriteRenderer spriteRenderer;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        // Assuming your GameObject has a SpriteRenderer component
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.gameObject.SetActive(false);
+        spriteRenderer.transform.localScale = Vector3.zero;
 
-        if (spriteRenderer == null)
+        GameEvents.OnSheetGenerated += OnSheetGenerated;
+    }
+
+    private void OnDestroy()
+    {
+        GameEvents.OnSheetGenerated -= OnSheetGenerated;
+    }
+
+    #endregion
+
+    #region Callbacks
+
+    private void OnSheetGenerated(int notes, InstrumentType instrument)
+    {
+        switch (instrument)
         {
-            // If there's no SpriteRenderer, you may need to add one or modify accordingly
-            //Debug.LogError("SpriteRenderer component not found on GameObject: " + gameObject.name);
+            case InstrumentType.Banjo:
+                PonerInstr_banjo();
+                break;
+
+            case InstrumentType.Tambor:
+                PonerInstr_tambor();
+                break;
+
+            case InstrumentType.Trompeta:
+                PonerInstr_xilo();
+                break;
+
+            case InstrumentType.Vocal:
+                PonerInstr_micro();
+                break;
+
+            default:
+                break;
         }
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // You can add any additional update logic if needed
-    }
+    #endregion
+
 
     void PonerInstr(int i)
     {
         if (spriteRenderer != null)
         {
-            Vector3 originalScale = transform.localScale;
-            Vector3 targetScale = originalScale * 1.4f;
+            spriteRenderer.gameObject.SetActive(true);
 
             // Create a new sequence
             Sequence scaleSequence = DOTween.Sequence();
 
             // Add the first tween to scale up
-            scaleSequence.Append(transform.DOScale(targetScale, 0.4f).SetEase(Ease.Linear));
+            scaleSequence.Append(spriteRenderer.transform.DOScale(_bigScale, _seconds).SetEase(Ease.InOutBounce));
+
+            scaleSequence.Append(spriteRenderer.transform.DOScale(1, _seconds).SetEase(Ease.Linear));
+
+            scaleSequence.AppendInterval(_waitSeconds);
 
             // Add the second tween to scale back down
-            scaleSequence.Append(transform.DOScale(originalScale, 0.4f).SetEase(Ease.Linear));
+            scaleSequence.Append(spriteRenderer.transform.DOScale(0, _hideSeconds).SetEase(Ease.InOutBounce));
+
+            scaleSequence.AppendCallback(() => spriteRenderer.gameObject.SetActive(false));
 
             // Play the sequence
             scaleSequence.Play();
-
-
 
             // Set the sprite based on the integer value
             switch (i)
