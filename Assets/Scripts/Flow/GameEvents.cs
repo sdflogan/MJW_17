@@ -1,5 +1,6 @@
 
 using MJW.Instruments;
+using MJW.Simon;
 using System;
 
 namespace MJW.Game

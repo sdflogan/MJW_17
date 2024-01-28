@@ -75,6 +75,13 @@ namespace MJW.Player
 
         #endregion
 
+        public void TriggerDance(DanceType dance)
+        {
+            string danceName = (dance == DanceType.dance_1 ? "baile_1" : "baile_2");
+
+            _animator.SetTrigger(danceName);
+        }
+
         public void TriggerTongue()
         {
             _animator.SetTrigger("Pick");
