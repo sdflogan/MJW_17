@@ -13,7 +13,6 @@ public class Garza : MonoBehaviour
 
     private void Start()
     {
-        // Invoke(nameof(GarzaAttack), 2f);
         Sequence sequence = DOTween.Sequence();
         sequence.AppendInterval(2f);
         sequence.Append(transform.DOMoveY(_posFinal.position.y, 1f));
@@ -21,6 +20,9 @@ public class Garza : MonoBehaviour
         {
             Instantiate(_impactPrefab, gameObject.transform);
         }));
+        sequence.Play();
+        
+        Destroy(gameObject, 4f);
     }
 
     

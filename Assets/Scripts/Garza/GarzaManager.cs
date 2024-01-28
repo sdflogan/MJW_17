@@ -19,7 +19,6 @@ namespace MJW.Garza
         private void Awake()
         {
             GameEvents.OnGameReady += OnGameReady;
-            
         }
 
         private void OnDestroy()
@@ -30,17 +29,21 @@ namespace MJW.Garza
         public void OnGameReady()
         {
             float waitTime = Random.Range(_garzaMinStartSeconds, _garzaMaxStartSeconds);
+            Debug.Log(waitTime);
             
-            Invoke(nameof(GarzaAppear), waitTime);
+            StartCoroutine(GarzaAppear(waitTime));
         }
 
-        private IEnumerator GarzaAppear()
+        private IEnumerator GarzaAppear(float waitTime)
         {
+            yield return new WaitForSeconds(waitTime);
+            Debug.Log("Hola");
             int randomNumber = Random.Range(0, _zonesGarzaFalling.Count);
             Transform randomPosition = _zonesGarzaFalling[randomNumber].transform;
 
             Instantiate(_garzaPrefab, randomPosition);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(4.5f);
+            OnGameReady();
         }
     }
 }
