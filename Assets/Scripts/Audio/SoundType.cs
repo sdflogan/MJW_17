@@ -62,6 +62,28 @@ namespace MJW.Audio
         xyl4D,
 
         xylFail,
-        xylOk
+        xylOk,
+
+        // Other
+        frog_no1,
+        frog_no2,
+        frog_ord1,
+        frog_ord2,
+        frog_risa1,
+        frog_risa2,
+        frog_bien1,
+        frog_bien2,
+
+        garza_impact,
+        garza_scream,
+
+        rana_demo,
+
+        step1,
+        step2,
+        step3,
+        step4,
+        step5,
+        step6
     }
 }

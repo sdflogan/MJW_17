@@ -1,4 +1,5 @@
 
+using MJW.Audio;
 using MJW.Utils;
 
 namespace MJW.Game
@@ -11,6 +12,8 @@ namespace MJW.Game
         {
             GameEvents.OnGameReady += OnGameReady;
             GameEvents.OnGameEnd += OnGameEnd;
+
+            AudioManager.Instance.PlayMusic(SoundType.rana_demo);
         }
 
         private void OnDestroy()

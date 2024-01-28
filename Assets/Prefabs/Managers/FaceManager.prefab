@@ -75,3 +75,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _laughs: 3e0100003f010000
+  _angry: 3a0100003b010000
+  _ok: 4001000041010000
+  _orden: 3c0100003d010000

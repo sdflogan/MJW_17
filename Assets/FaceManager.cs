@@ -7,6 +7,7 @@ using System.Collections.Specialized;
 using MJW.Utils;
 using MJW.Game;
 using MJW.Instruments;
+using MJW.Audio;
 
 public class FaceManager : Singleton<FaceManager>
 {
@@ -20,6 +21,11 @@ public class FaceManager : Singleton<FaceManager>
 
     [SerializeField] private float _seconds;
     [SerializeField] private AnimationCurve _customCurve;
+
+    [SerializeField] private List<SoundType> _laughs;
+    [SerializeField] private List<SoundType> _angry;
+    [SerializeField] private List<SoundType> _ok;
+    [SerializeField] private List<SoundType> _orden;
 
     private int _successCount = 0;
 
@@ -145,21 +151,36 @@ public class FaceManager : Singleton<FaceManager>
 
     public void PonerCara_seria() {
         PonerCara(0);
+
+        int randomIndex = Random.Range(0, _angry.Count);
+        AudioManager.Instance.PlaySFX(_angry[randomIndex], true);
     }
     public void PonerCara_carcajada()
     {
         PonerCara(1);
+
+        int randomIndex = Random.Range(0, _laughs.Count);
+        AudioManager.Instance.PlaySFX(_laughs[randomIndex], true);
     }
     public void PonerCara_sonrisa()
     {
         PonerCara(2);
+
+        int randomIndex = Random.Range(0, _ok.Count);
+        AudioManager.Instance.PlaySFX(_ok[randomIndex], true);
     }
     public void PonerCara_enfadada()
     {
         PonerCara(3);
+
+        int randomIndex = Random.Range(0, _angry.Count);
+        AudioManager.Instance.PlaySFX(_angry[randomIndex], true);
     }
     public void PonerCara_orden()
     {
         PonerCara(4);
+
+        int randomIndex = Random.Range(0, _orden.Count);
+        AudioManager.Instance.PlaySFX(_orden[randomIndex], true);
     }
 }

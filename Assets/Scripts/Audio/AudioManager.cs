@@ -89,6 +89,19 @@ namespace MJW.Audio
             _audioSourceSFX.PlayOneShot(GetClip(sfx));
         }
 
+        public void PlaySFX(SoundType sfx, bool randomPitch)
+        {
+            if (randomPitch)
+            {
+                _audioSourceSFX.pitch = Random.Range(0.9f, 1.1f);
+            }
+            else
+            {
+                _audioSourceSFX.pitch = 1f;
+            }
+            _audioSourceSFX.PlayOneShot(GetClip(sfx));
+        }
+
         public void StopSFX()
         {
             _audioSourceSFX.Stop();

@@ -391,6 +391,40 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 04cd4939bf3482143a61e85f0cc312a2, type: 3}
   - SoundType: 313
     Clip: {fileID: 8300000, guid: ef57c78dec961e64e8bb87acda800409, type: 3}
+  - SoundType: 314
+    Clip: {fileID: 8300000, guid: 49235a7f55e61854c81c9c2badb8124f, type: 3}
+  - SoundType: 315
+    Clip: {fileID: 8300000, guid: 6feffde969140024ebd7cd10bfa4e210, type: 3}
+  - SoundType: 316
+    Clip: {fileID: 8300000, guid: da065e14d2c57e249958d0555aaae139, type: 3}
+  - SoundType: 317
+    Clip: {fileID: 8300000, guid: e3eb2a0b985f947468f586e6a71c6ccf, type: 3}
+  - SoundType: 318
+    Clip: {fileID: 8300000, guid: 72da53b284cd8c74fbe85e912cb77f26, type: 3}
+  - SoundType: 319
+    Clip: {fileID: 8300000, guid: 61df7c875d1a07949917ed62849f1122, type: 3}
+  - SoundType: 320
+    Clip: {fileID: 8300000, guid: 4656e028b6a04a2488bdf757c98f85a2, type: 3}
+  - SoundType: 321
+    Clip: {fileID: 8300000, guid: 8b01db73371bf35448f122b691828448, type: 3}
+  - SoundType: 322
+    Clip: {fileID: 8300000, guid: 17bf16d48287b6d42979057193e62414, type: 3}
+  - SoundType: 323
+    Clip: {fileID: 8300000, guid: feff3899ab77c344ba9b8b3acca77653, type: 3}
+  - SoundType: 324
+    Clip: {fileID: 8300000, guid: 3cddb4e82fe700d4e8fb8e7737b47b06, type: 3}
+  - SoundType: 325
+    Clip: {fileID: 8300000, guid: f944430d2f51bc24abd3c6df27207f76, type: 3}
+  - SoundType: 326
+    Clip: {fileID: 8300000, guid: 0defcfc343a5a264986352e8ecc96873, type: 3}
+  - SoundType: 327
+    Clip: {fileID: 8300000, guid: 1cdbbfedb7c49854eaaf039e454bb624, type: 3}
+  - SoundType: 328
+    Clip: {fileID: 8300000, guid: f3482fb31115fd34c915975197cb28cc, type: 3}
+  - SoundType: 329
+    Clip: {fileID: 8300000, guid: 0cce6e4611e52144d843c0819afa7099, type: 3}
+  - SoundType: 330
+    Clip: {fileID: 8300000, guid: 37238640f8b21264b8c907cd97ca0d7e, type: 3}
 --- !u!1 &8116812609415895332
 GameObject:
   m_ObjectHideFlags: 0
