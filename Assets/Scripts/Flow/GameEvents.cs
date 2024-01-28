@@ -18,7 +18,7 @@ namespace MJW.Game
         public static Action<InstrumentType> OnNoteSuccess;
 
         public static Action<int, InstrumentType> OnSheetGenerated;
-        public static Action<int, InstrumentType> OnSheetCompled;
+        public static Action<int, InstrumentType, int> OnSheetCompled;
 
         public static Action OnStickSuccess;
         public static Action OnStickFailed;

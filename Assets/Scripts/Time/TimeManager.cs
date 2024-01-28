@@ -7,12 +7,14 @@ using UnityEngine;
 
 namespace MJW.MyTime
 {
-    public class TimeManager : Singleton<MonoBehaviour>
+    public class TimeManager : Singleton<TimeManager>
     {
         [SerializeField] private int _roundSeconds = 60;
 
         private Coroutine _coroutine;
         private float _currentSeconds;
+
+        public float RemainingSeconds => _currentSeconds;
 
         #region Unity events
 
