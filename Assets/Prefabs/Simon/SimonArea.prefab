@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6658057011731981033}
   - component: {fileID: 6658057011731981031}
   - component: {fileID: 6658057011731981032}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 6658057012427395840}
   - component: {fileID: 6658057012427395871}
   - component: {fileID: 7115409391853634976}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 6658057012545747043}
   - component: {fileID: 6658057012545747044}
   - component: {fileID: 3480693432055337063}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}

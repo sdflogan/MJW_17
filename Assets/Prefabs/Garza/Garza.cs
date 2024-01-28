@@ -15,7 +15,7 @@ public class Garza : MonoBehaviour
     private void Start()
     {
         Sequence sequence = DOTween.Sequence();
-        sequence.AppendInterval(2f);
+        sequence.AppendInterval(1.5f);
         sequence.Append(visual.transform.DOMoveY(_posFinal.position.y, 1f));
         sequence.AppendCallback((() =>
         {
