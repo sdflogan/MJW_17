@@ -153,6 +153,8 @@ namespace MJW.Simon
             }
 
             _currentNoteIndex = 0;
+
+            GameEvents.OnSheetGenerated?.Invoke(sheet.Count, _instrument);
         }
 
         private bool Evaluate(ButtonType input)
