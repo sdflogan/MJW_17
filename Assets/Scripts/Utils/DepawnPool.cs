@@ -7,7 +7,7 @@ namespace MJW.Utils
     {
         public float LifeSeconds = 10;
 
-        private void Start()
+        private void OnEnable()
         {
             Invoke(nameof(Depawn), LifeSeconds);
         }

@@ -25,6 +25,7 @@ namespace MJW.Player
 
         public float MaxSpeed => _maxSpeed;
         public float MaxRotationSpeed => _maxRotationSpeed;
+        public float CurrentSpeed => _currentSpeed;
 
         #endregion
 

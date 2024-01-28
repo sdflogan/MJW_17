@@ -1,4 +1,5 @@
 
+using MJW.Instruments;
 using System;
 
 namespace MJW.Game
@@ -11,10 +12,10 @@ namespace MJW.Game
         public static Action OnSimonStart;
         public static Action OnSimonEnd;
 
-        public static Action OnButtonFailed;
-        public static Action OnButtonSuccess;
+        public static Action<InstrumentType> OnNoteFailed;
+        public static Action<InstrumentType> OnNoteSuccess;
 
-        public static Action<int> OnSheetCompled;
+        public static Action<int, InstrumentType> OnSheetCompled;
 
         public static Action OnStickSuccess;
         public static Action OnStickFailed;

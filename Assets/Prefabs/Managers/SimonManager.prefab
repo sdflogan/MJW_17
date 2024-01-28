@@ -77,3 +77,4 @@ MonoBehaviour:
   _simonMinStartSeconds: 2
   _simonMaxStartSeconds: 5
   _simonDurationSeconds: 20
+  _debug: 0
