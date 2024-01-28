@@ -105,7 +105,7 @@ namespace MJW.Instruments
             }
         }
 
-        public void OnSheetCompleted(int errors, InstrumentType instrument)
+        public void OnSheetCompleted(int errors, InstrumentType instrument, int remainingSeconds)
         {
             try
             {

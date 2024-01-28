@@ -2,6 +2,7 @@
 using DG.Tweening;
 using MJW.Game;
 using MJW.Instruments;
+using MJW.MyTime;
 using MJW.Simon;
 using MJW.Simon.UI;
 using MJW.Utils;
@@ -83,7 +84,7 @@ namespace MJW.Simon
                 if (_currentNoteIndex + 1 >= _currentButtons.Count)
                 {
                     // TODO
-                    GameEvents.OnSheetCompled?.Invoke(errors, _instrument);
+                    GameEvents.OnSheetCompled?.Invoke(errors, _instrument, (int) TimeManager.Instance.RemainingSeconds);
                 }
                 else
                 {
