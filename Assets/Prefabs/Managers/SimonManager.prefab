@@ -68,6 +68,8 @@ MonoBehaviour:
   _areas: []
   _success: {r: 0.34117648, g: 0.7921569, b: 0.3882353, a: 0.49803922}
   _error: {r: 0.7924528, g: 0.20484152, b: 0.20484152, a: 0.49803922}
+  SuccessIcon: {fileID: 21300000, guid: 5a76a251c5c87494e9d32d1011bb1f01, type: 3}
+  FailIcon: {fileID: 21300000, guid: 383707057496ba94d9bd2ab7f05315d0, type: 3}
   _simonMinStartSeconds: 2
   _simonMaxStartSeconds: 5
   _simonDurationSeconds: 20
