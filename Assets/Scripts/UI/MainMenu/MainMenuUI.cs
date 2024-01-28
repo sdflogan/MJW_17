@@ -34,6 +34,7 @@ namespace MJW.UI.MainMenu
 
         private void OnPlayPressed()
         {
+            _playBtn.enabled = false;
             GameEvents.OnGameStarted?.Invoke();
         }
 

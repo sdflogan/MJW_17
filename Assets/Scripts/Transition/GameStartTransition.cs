@@ -48,6 +48,7 @@ namespace MJW.Transition
 
         private void OnGameStarted()
         {
+            Debug.LogError("On Game Started transition");
             var sequence = DOTween.Sequence();
 
             sequence.Append(_camera.gameObject.transform.

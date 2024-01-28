@@ -48,7 +48,7 @@ MonoBehaviour:
   - _type: 0
     _icon: {fileID: 21300000, guid: 80767af4d4c4b544d96c92b828371e63, type: 3}
   - _type: 1
-    _icon: {fileID: 21300000, guid: 6ad7d35a8c126ab4fadeacb323a49a3b, type: 3}
+    _icon: {fileID: 21300000, guid: 2938257e410a0134e829d0e1345d14a4, type: 3}
   - _type: 2
     _icon: {fileID: 21300000, guid: b121708388d351242929ccc8d89cd0d8, type: 3}
   - _type: 3
@@ -56,7 +56,7 @@ MonoBehaviour:
   - _type: 4
     _icon: {fileID: 21300000, guid: 417a6d8f48226b64baf72071c32abd60, type: 3}
   - _type: 5
-    _icon: {fileID: 21300000, guid: 2938257e410a0134e829d0e1345d14a4, type: 3}
+    _icon: {fileID: 21300000, guid: 6ad7d35a8c126ab4fadeacb323a49a3b, type: 3}
   - _type: 6
     _icon: {fileID: 21300000, guid: 4a0498f870b8f7a44a9ca527d1e1228b, type: 3}
   - _type: 7
@@ -64,7 +64,6 @@ MonoBehaviour:
   _sheetData:
   - NotesAmount: 2
   - NotesAmount: 4
-  - NotesAmount: 6
   _areas: []
   _success: {r: 0.34117648, g: 0.7921569, b: 0.3882353, a: 0.49803922}
   _error: {r: 0.7924528, g: 0.20484152, b: 0.20484152, a: 0.49803922}

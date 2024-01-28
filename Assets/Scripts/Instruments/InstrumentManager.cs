@@ -1,7 +1,7 @@
-
 using MJW.Audio;
 using MJW.Game;
 using MJW.Utils;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,6 +33,7 @@ namespace MJW.Instruments
         {
             GameEvents.OnNoteSuccess += OnNoteSuccess;
             GameEvents.OnNoteFailed += OnNoteFailed;
+            GameEvents.OnSheetGenerated += OnSheetGenerated;
             GameEvents.OnSheetCompled += OnSheetCompleted;
         }
 
@@ -40,6 +41,7 @@ namespace MJW.Instruments
         {
             GameEvents.OnNoteSuccess -= OnNoteSuccess;
             GameEvents.OnNoteFailed -= OnNoteFailed;
+            GameEvents.OnSheetGenerated -= OnSheetGenerated;
             GameEvents.OnSheetCompled -= OnSheetCompleted;
         }
 
@@ -49,35 +51,71 @@ namespace MJW.Instruments
 
         public void OnNoteSuccess(InstrumentType instrument)
         {
-            if (_currentNoteIndex < _currentSheet.Notes.Count)
+            try
             {
-                AudioManager.Instance.PlaySFX(_currentSheet.Notes[_currentNoteIndex]);
+                if (_currentNoteIndex < _currentSheet.Notes.Count)
+                {
+                    AudioManager.Instance.PlaySFX(_currentSheet.Notes[_currentNoteIndex]);
+                }
+                else if (_currentNoteIndex - 1 < _currentSheet.Notes.Count)
+                {
+                    AudioManager.Instance.PlaySFX(_currentSheet.Notes[_currentNoteIndex - 1]);
+                }
+                _currentNoteIndex++;
             }
-            else if (_currentNoteIndex-1 < _currentSheet.Notes.Count)
+            catch (Exception ex)
             {
-                AudioManager.Instance.PlaySFX(_currentSheet.Notes[_currentNoteIndex-1]);
+                Debug.LogException(ex);
+                Debug.LogError(instrument);
             }
-
-            _currentNoteIndex++;
         }
 
         public void OnNoteFailed(InstrumentType instrument)
         {
-            AudioManager.Instance.PlaySFX(GetFailSound(instrument));
-            _currentNoteIndex++;
+            try
+            {
+                AudioManager.Instance.PlaySFX(GetFailSound(instrument));
+                _currentNoteIndex++;
+            }
+            catch(Exception ex)
+            {
+                Debug.LogException(ex);
+                Debug.LogError(instrument);
+            }
         }
 
         public void OnSheetGenerated(int notes, InstrumentType instrument)
         {
-            _currentNotesAmount = notes;
-            _currentInstrument = instrument;
-            _currentNoteIndex = 0;
-            _currentSheet = Find(instrument, notes);
+            try
+            {
+                _currentNotesAmount = notes;
+                _currentInstrument = instrument;
+                _currentNoteIndex = 0;
+                _currentSheet = Find(instrument, notes);
+
+                if (_currentSheet.Notes == null || _currentSheet.Notes.Count <= 0)
+                {
+                    Debug.LogError("Failed generating sheet: " + instrument + " - " + notes);
+                }
+            }
+            catch(Exception ex)
+            {
+                Debug.LogException(ex);
+                Debug.LogError(instrument);
+            }
         }
 
         public void OnSheetCompleted(int errors, InstrumentType instrument)
         {
-            AudioManager.Instance.PlaySFX(GetOkSound(instrument));
+            try
+            {
+                AudioManager.Instance.PlaySFX(GetOkSound(instrument));
+            }
+            catch(Exception ex)
+            {
+                Debug.LogException(ex);
+                Debug.LogError(instrument);
+            }
         }
 
         #endregion
@@ -118,11 +156,15 @@ namespace MJW.Instruments
                         }
                     }
                     break;
+
+                default:
+                    Debug.LogError("type is undefined");
+                    break;
             }
 
             if (sheets.Count > 0)
             {
-                return sheets[Random.Range(0, sheets.Count)];
+                return sheets[UnityEngine.Random.Range(0, sheets.Count)];
             }
 
             return new InstrumentSheet();
@@ -140,6 +182,10 @@ namespace MJW.Instruments
 
                 case InstrumentType.Trompeta:
                     return SoundType.xylOk;
+
+                default:
+                    Debug.LogError("type is undefined");
+                    break;
             }
 
             return SoundType.Undefined;
@@ -157,6 +203,10 @@ namespace MJW.Instruments
 
                 case InstrumentType.Trompeta:
                     return SoundType.xylFail;
+
+                default:
+                    Debug.LogError("type is undefined");
+                    break;
             }
 
             return SoundType.Undefined;

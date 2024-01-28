@@ -26,35 +26,35 @@ namespace MJW.Simon
             {
                 if (_player.GetButtonDown("L Pad Up"))
                 {
-                    ButtonDetected(ButtonType.Left_Left);
+                    ButtonDetected(ButtonType.Left_Up);
                 }
                 else if (_player.GetButtonDown("L Pad Down"))
                 {
-                    ButtonDetected(ButtonType.Left_Right);
+                    ButtonDetected(ButtonType.Left_Down);
                 }
                 else if (_player.GetButtonDown("L Pad Left"))
                 {
-                    ButtonDetected(ButtonType.Left_Down);
+                    ButtonDetected(ButtonType.Left_Left);
                 }
                 else if (_player.GetButtonDown("L Pad Right"))
                 {
-                    ButtonDetected(ButtonType.Left_Up);
+                    ButtonDetected(ButtonType.Left_Right);
                 }
                 else if (_player.GetButtonDown("D Pad Up"))
                 {
-                    ButtonDetected(ButtonType.Right_Right);
+                    ButtonDetected(ButtonType.Right_Up);
                 }
                 else if (_player.GetButtonDown("D Pad Down"))
                 {
-                    ButtonDetected(ButtonType.Right_Left);
+                    ButtonDetected(ButtonType.Right_Down);
                 }
                 else if (_player.GetButtonDown("D Pad Left"))
                 {
-                    ButtonDetected(ButtonType.Right_Up);
+                    ButtonDetected(ButtonType.Right_Left);
                 }
                 else if (_player.GetButtonDown("D Pad Right"))
                 {
-                    ButtonDetected(ButtonType.Right_Down);
+                    ButtonDetected(ButtonType.Right_Right);
                 }
             }
         }
