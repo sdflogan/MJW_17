@@ -44,6 +44,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc26c560b3e984479f7aabe5bf9da9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _banjoSheets: []
-  _percSheets: []
-  _xylSheets: []
+  _banjoSheets:
+  - Notes: 6400000065000000
+  - Notes: 6600000067000000
+  - Notes: 68000000690000006a0000006b000000
+  - Notes: 6c0000006d0000006e0000006f000000
+  _percSheets:
+  - Notes: c8000000c9000000
+  - Notes: ca000000cb000000
+  - Notes: cc000000cd000000ce000000cf000000
+  - Notes: d0000000d1000000d2000000d3000000
+  _xylSheets:
+  - Notes: 2c0100002d010000
+  - Notes: 2e0100002f010000
+  - Notes: 30010000310100003201000033010000
+  - Notes: 34010000350100003601000037010000
